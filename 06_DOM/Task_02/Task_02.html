@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    
+    <title>Task 2</title>
+
+</head>
+
+<body>
+   
+    <button onClick="insertDivs(5)">Create divs</button>
+    <button onClick="carousel()">Make them move</button>
+    
+    <script>
+        function insertDivs (n) {
+            for (var i = 0; i < n; i++) {
+                document.body.appendChild(createDiv());
+            }
+        }
+        
+        function carousel () {
+            var start = 0;
+            var timeout;
+            var divs = document.getElementsByTagName('div');
+            
+            function moveToNext () {
+                var next = start + 1;
+                if (start == divs.length - 1) next = 1;
+                divs[start].style.display = 'block';
+                divs[next].style.display = 'none';
+            }
+            setInterval (function() {
+                divs[start].style.display = 'none';
+                start++;
+                if (start == divs.length) start = 0;
+                moveToNext();
+            }, 1000)
+        }
+        
+        function createDiv () {
+            var div = document.createElement('div');
+            
+            div.style.position = 'absolute';
+            div.style.display = 'none';
+            div.style.width = '300px';
+            div.style.height = '100px';
+            div.style.backgroundColor = 'rgb(' + [getRandom(0, 255), getRandom(0, 255), getRandom(0, 255)].join(',') + ')';
+            
+            function getRandom (min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + 1) + min;
+            }
+            
+            return div;
+        }
+    </script>
+    
+</body>
+
+</html>

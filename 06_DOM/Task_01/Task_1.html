@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+   
+    <title>Task 1</title>
+
+</head>
+
+<body>
+   
+    <div>Div</div>
+    <div>Div
+        <div></div>&nbsp;&nbsp;&nbsp;&nbsp;Div
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;Div
+            <div></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Div
+        </div>
+    </div>
+    
+    <script>
+        document.write('</br>');
+        
+        var i = 0,
+            count = 0;
+        
+        var innerDivs = document.querySelectorAll('div > div');
+        document.write('1. Using querySelectorAll --- result is ' + innerDivs.length);
+        
+        document.write('</br>');
+        
+        var allDivs = document.getElementsByTagName('div');
+        for (i; i < allDivs.length; i++) {
+            if (allDivs[i].parentNode.tagName == 'DIV') {
+                count++;
+            }
+        }
+        document.write('2. Using getElementsByTagName --- result is ' + count);        
+    </script>
+
+</body>
+
+</html>

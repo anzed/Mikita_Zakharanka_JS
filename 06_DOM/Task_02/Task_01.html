@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    
+    <title>Task 1</title>
+
+</head>
+
+<body>
+    
+    <button onClick="insertDivs()">Create divs</button>
+    
+    <script>
+        function insertDivs () {
+            var n = Number(prompt('Type number of divs to create', 'Number'));
+            
+            if (!isNaN(n)) {
+                for (var i = 0; i < n; i++) {
+                    document.body.appendChild(createDiv());
+                }
+            } else {
+                alert('Please, type only numbers');
+            }
+            
+        }
+        
+        
+        function createDiv () {
+            var div = document.createElement('div');
+            
+            div.style.position = 'absolute';
+            div.style.width = getRandom(20, 100) + 'px';
+            div.style.height = getRandom(20, 100)+ 'px';
+            div.style.backgroundColor = 'rgb(' + [getRandom(0, 255), getRandom(0, 255), getRandom(0, 255)].join(',') + ')';
+            div.style.top = getRandom(0, 500) + 'px';
+            div.style.left = getRandom(0, 1000) + 'px';
+            div.style.borderStyle = 'solid';
+            div.style.borderWidth = getRandom(0, 20) + 'px';
+            div.style.borderRadius = getRandom(0, 50) + 'px';
+            div.style.borderColor = 'rgb(' + [getRandom(0, 255), getRandom(0, 255), getRandom(0, 255)].join(',') + ')';
+            div.innerHTML = '<strong>Div</strong>';
+            
+            function getRandom (min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + 1) + min;
+            }
+            
+            return div;
+        }
+    </script>
+    
+</body>
+
+</html>

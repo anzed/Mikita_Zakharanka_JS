@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    
+    <title>Task 3</title>
+
+</head>
+
+<body>
+
+    <button onClick="insertElements()">Press to start</button>
+   
+    <script>
+        
+        function insertElements () {
+            document.body.appendChild(createTextArea());
+            document.body.appendChild(createInputs());
+            
+            changeColors();
+        }
+        
+        function changeColors() {
+            var inputs = document.getElementsByTagName('input');
+            
+            inputs[0].onchange = function() {
+                document.querySelector('textarea').style.color = inputs[0].value;
+            }
+            
+            inputs[1].onchange = function() {
+                document.querySelector('textarea').style.backgroundColor = inputs[1].value;
+            }
+        }
+        
+        function createTextArea () {
+            var textArea = document.createElement('textarea');
+            textArea.textContent = 'Lorem ipsum dolor';
+            textArea.style.display = 'block';
+            
+            return textArea;
+        }
+        
+        function createInputs () {
+            var first = document.createElement('input');
+            first.setAttribute('type', 'color');
+            
+            var second = document.createElement('input');
+            second.setAttribute('type', 'color');
+            
+            var div = document.createElement('div');
+            div.appendChild(first);
+            div.appendChild(second);
+            
+            return div;
+        }
+        
+    </script>
+    
+</body>
+
+</html>
