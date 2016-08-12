@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    
+    <title>Task 4</title>
+
+</head>
+
+<body>
+   
+    <button onclick="generateTagCloud(tags, 17, 42)">Press to start</button>
+    
+    <script>
+        
+        var tags = [
+            "cms", "javascript", "js", "ASP.NET MVC", ".net", ".net", "css", "wordpress", "xaml", "js", "http",
+            "web", "asp.net", "asp.net MVC", "ASP.NET MVC", "wp", "javascript", "js", "cms", "html", "javascript",
+            "http", "http", "CMS"
+        ];
+        
+        function generateTagCloud (tags, minFontSize, maxFontSize) {            
+            var tagsArray = prepareTags(tags);
+            
+            createTags(tagsArray, minFontSize, maxFontSize);
+        }
+        
+        function prepareTags (arr) {
+            var result = [],
+                i = 0;
+            
+            for (i; i < arr.length; i++) {
+                var lowCase = arr[i].toLowerCase();
+                (result[lowCase]) ? (result[lowCase]++) : (result[lowCase] = 1);
+            }
+
+            return result;
+        }
+        
+        function createTags (tagsArr, minFontSize, maxFontSize) {
+            var div = document.createElement('div');
+            div.style.width = '250px';
+            div.style.border = '1px black solid';
+            document.body.appendChild(div);
+            
+            var rareTag = Array.min(tagsArr);
+            var frequentTag = Array.max(tagsArr);
+            
+            var oneStep = (maxFontSize - minFontSize) / (frequentTag - rareTag);
+            
+            for (var tag in tagsArr) {
+                var p = document.createElement('p');
+                p.style.fontSize = ((tagsArr[tag] - 1) * oneStep + minFontSize) + 'px';
+                p.style.display = 'inline-block';
+                p.style.margin = '5px';
+                p.innerHTML = tag;
+
+                div.appendChild(p);
+            }
+        }
+        
+        Array.min = function(arr) {
+            return Math.min.apply(null, Object.keys(arr).map(function(e) {
+                return arr[e];
+            }));
+            
+        };
+
+        Array.max = function(arr) {
+            return Math.max.apply(null, Object.keys(arr).map(function(e) {
+                return arr[e];
+            }));
+        };
+        
+    </script>
+    
+</body>
+
+</html>
