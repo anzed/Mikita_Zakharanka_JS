@@ -19,9 +19,10 @@ house.src = 'img/Picture3.png';
 var houseWidth = 200;
 var houseHeight = 240;
 
-var speed = 0.04;
+var speed = 0.01;
 
 function animate(now, before, position) {
+    speed += 0.0005; //acceleration
     var timeInterval = now - before;
     var distance = speed * timeInterval;
 
