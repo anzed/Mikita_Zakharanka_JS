@@ -1,0 +1,20 @@
+.container {
+    width: 400px;
+    margin: auto;
+}
+
+#task {
+    width: 296px;
+}
+
+#add {
+    width: 100px;
+}
+
+.remove, .hide {
+    float: right;
+}
+
+#todos li {
+    margin-top: 5px;
+}
