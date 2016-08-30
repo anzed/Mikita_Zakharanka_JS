@@ -82,7 +82,7 @@ function compareNumbers() {
 }
 
 function writeScore() {
-    var nickname = prompt("If you wish to save score write your nickname below or press 'ESC'");
+    var nickname = prompt("If you wish to save score write your nickname below or press 'ESC' to leave");
     localStorage.setItem(nickname, result);
 }
 
