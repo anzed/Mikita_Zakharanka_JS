@@ -1,0 +1,7 @@
+{
+    "name": "howto",
+    "version": "1.0.0",
+    "dependencies": {
+        "node-static": "0.7.8"
+    }
+}
