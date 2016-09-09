@@ -1,0 +1,31 @@
+.task {
+    width: 296px;
+}
+
+.add {
+    width: 100px;
+}
+
+.todos-list li {
+    margin-top: 5px;
+}
+
+.remove, .hide {
+    float: right;
+}
+
+.hidden-todo {
+    display: none;
+}
+
+.completed-todo {
+    text-decoration: line-through;
+}
+
+.show {
+    display: block;
+}
+
+.area {
+    display: inline-block;
+}
